@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>Capeside NHS</title>
+
+    <!-- include libraries.html -->
+    <script src="includes/libraries.html"></script>
+    <!-- local styles -->
+    <style>
+        #event-form {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f8f9fa;
+        }
+
+        #event-form label {
+            display: block;
+            margin-top: 10px;
+        }
+        #event-form input,
+        #event-form textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #event-form button, .deleteUser, #toggleEventList, #toggleUserList {
+            background-color: lightblue;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        #toggleUserList {
+            position: absolute;
+            top : 120px;
+            right: 20px;
+        }
+        #toggleEventList {
+            position: absolute;
+            top: 70px;
+            right: 20px;
+        }
+        #eventList li, #userList li {
+                border-bottom: 1px solid black;
+                padding-bottom: 8px;
+                margin-bottom: 8px;
+        }
+        #event-form button:hover, .deleteUser:hover, #toggleUserList:hover, #toggleEventList:hover {
+            background-color: #0056b3;
+        }
+        #userList, #eventList {
+            display:none;
+        }
+    </style>
+
+  </head>
+  <body class="d-flex flex-column h-100">
+    <header class='container'>
+        <!-- include nav.html -->
+        <div id="navigation"></div>
+    </header>
+    <main class="flex-shrink-0">
+        <div class="container">
+            <br>
+            <h1>Welcome Admin!</h1>
+            <br>
+            <button id="toggleUserList">>Show All Users</button>
+            <div id="userList">
+                <h4>User List</h4>
+                <ul id="users"></ul>
+            </div>
+            <button id="toggleEventList">>Show All Events</button>
+            <div id="eventList">
+                <h4>Event List</h4>
+                <ul id="events"></ul>
+            </div>
+            <div id ="event-form">
+                <h4>Create New Event</h4>
+                <br>
+                <form id="newEventForm">
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" name="title" required>
+
+                    <label for="location">Location:</label>
+                    <input type="text" id="location" name="location" required>
+
+                    <label for="date">Date:</label>
+                    <input type="text" id="date" name="date" required>
+
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description" rows="1" required></textarea>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="emaail" required></>
+
+                    <button type="button" id="submitEvent">Submit</button>
+                </form>
+                <br>
+            </div>
+        </div>
+    </main>
+    <footer class="footer mt-auto py-3 bg-light">
+        <!-- include footer.html -->
+        <div id="footer"></div>
+    </footer>
+
+    <!-- include scripts.html -->
+    <script src="includes/scripts.html"></script>
+    <!-- local jquery scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function(){
+        $.get('includes/scripts.html', function (data){
+            $('head').append(data);
+        });
+    });
+    $(document).ready(function () {
+        // Fetch and display users
+        $.ajax({
+            type: "GET",
+            url: 'data/users.xml',
+            dataType: 'xml',
+            success: function (userData) {
+                var $userXml = $(userData);
+                var userListHtml = '<ul>';
+                $userXml.find('user').each(function () {
+                    var level = $(this).find('level').text();
+                    if (level !== 'admin') {
+                        var firstName = $(this).find('firstName').text();
+                        var lastName = $(this).find('lastName').text();
+                        var username = $(this).find('username').text();
+                        var email = $(this).find('email').text();
+
+                        userListHtml += '<li>';
+                        userListHtml += '<strong>First Name: </strong>' + firstName + '<br>';
+                        userListHtml += '<strong>Last Name: </strong>' + lastName + '<br>';
+                        userListHtml += '<strong>Username: </strong>' + username + '<br>';
+                        userListHtml += '<strong>Email: </strong>' + email + '<br>';
+                        userListHtml += '<button class="deleteUser" data-username="' + username + '">Delete User</button>';
+                        userListHtml += '</li>';
+                    }
+                });
+                userListHtml += '</ul>';
+                $("#userList").append(userListHtml);
+
+                $(".deleteUser").on("click", function () {
+                    var usernameToDelete = $(this).data("username");
+                    alert("User '" + usernameToDelete + "' deleted.");
+                    $("#userList li:contains('" + usernameToDelete + "')").remove();
+                    userToRemove.remove();
+                });
+            }
+        });
+    });
+        $(document).ready(function () {
+            // Fetch and display events
+            $.ajax({
+                type: "GET",
+                url: 'data/events.xml',
+                dataType: 'xml',
+                success: function (eventData) {
+                    var $eventXml = $(eventData);
+                    var eventListHtml = '<ul>';
+
+                    $eventXml.find('event').each(function () {
+                        var title = $(this).find('title').text();
+                        var location = $(this).find('location').text();
+                        var date = $(this).find('date').text();
+                        var description = $(this).find('description').text();
+                        var email = $(this).find('email').text();
+
+                        eventListHtml += '<li>';
+                        eventListHtml += '<strong>Title: </strong>' + title + '<br>';
+                        eventListHtml += '<strong>Location: </strong>' + location + '<br>';
+                        eventListHtml += '<strong>Date: </strong>' + date + '<br>';
+                        eventListHtml += '<strong>Description: </strong>' + description + '<br>';
+                        eventListHtml += '<strong>Email: </strong>' + email; 
+                        eventListHtml += '</li>';
+                    });
+
+                    eventListHtml += '</ul>';
+                    $("#eventList").append(eventListHtml);
+                },
+        });
+        $("#submitEvent").on("click", function () {
+                var title = $("#title").val();
+                var location = $("#location").val();
+                var date = $("#date").val();
+                var description = $("#description").val();
+                var email = $("#email").val();
+
+                // Append the new event to the list
+                var newEventHtml = '<li>';
+                newEventHtml += '<strong>Title: </strong>' + title + '<br>';
+                newEventHtml += '<strong>Location: </strong>' + location + '<br>';
+                newEventHtml += '<strong>Date: </strong>' + date + '<br>';
+                newEventHtml += '<strong>Description: </strong>' + description + '<br>';
+                newEventHtml += '<strong>Email: </strong>' + email;
+                newEventHtml += '</li>';
+                $("#events").append(newEventHtml);
+                $("#newEventForm")[0].reset();
+            });
+        });
+    $("#toggleUserList").click(function () {
+        $("#userList").slideToggle();
+    });
+
+    $("#toggleEventList").click(function () {
+        $("#eventList").slideToggle();
+    });
+    </script>
+  </body>
+</html>

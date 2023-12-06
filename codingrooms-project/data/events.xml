@@ -1,0 +1,62 @@
+<events>
+    <event>
+        <title>Ring Bells for Salvation Army</title>
+        <location>To be determined</location>
+        <date>December 1-24</date>
+        <description>Join the Ring Bells campaign for the Salvation Army from December 1-24. Contact Sgt. Sarah Brown for details.</description>
+        <email>sbrown@salvarmy.org</email>
+        <indicators>
+            <indicator type="past">false</indicator>
+            <indicator type="upcoming">true</indicator>
+            <indicator type="current">false</indicator>
+        </indicators>
+    </event>
+    <event>
+        <title>Meal Servers</title>
+        <location>Main Street Cupboard</location>
+        <date>Saturdays and Sundays in November</date>
+        <description>Volunteer to serve meals at Main Street Cupboard every Saturday and Sunday in November. Contact Mr. Gordon Ramsey for details.</description>
+        <email>gramsey@zagat.com</email>
+        <indicators>
+            <indicator type="past">false</indicator>
+            <indicator type="upcoming">false</indicator>
+            <indicator type="current">true</indicator>
+        </indicators>
+    </event>
+    <event>
+        <title>Harvest Carnival</title>
+        <location>Peace Park</location>
+        <date>October 17th, 2023</date>
+        <description>Enjoy the Harvest Carnival for fun fall activies at Peace Park. Contact Ms. M. Teresa for details.</description>
+        <email>mteresa@planetpeace.org</email>
+        <indicators>
+            <indicator type="past">true</indicator>
+            <indicator type="upcoming">false</indicator>
+            <indicator type="current">false</indicator>
+        </indicators>
+    </event>
+    <event>
+        <title>Tutor club</title>
+        <location>School</location>
+        <date>October-May</date>
+        <description>Need help or want to give help? Attend tutor club meetings Contact Mr. Wizard for more information.</description>
+        <email>wiz@tutors.com</email>
+        <indicators>
+            <indicator type="past">false</indicator>
+            <indicator type="upcoming">false</indicator>
+            <indicator type="current">true</indicator>
+        </indicators>
+    </event>
+    <event>
+        <title>Theater Club Usher</title>
+        <location>Broadway Theater</location>
+        <date>March 10-12</date>
+        <description>Volunteer as an usher for the Theater Club event at the Broadway Theater on March 10-12. Contact Mr. Neil Harris for details.</description>
+        <email>nharris@broadway.com</email>
+        <indicators>
+            <indicator type="past">false</indicator>
+            <indicator type="upcoming">true</indicator>
+            <indicator type="current">false</indicator>
+        </indicators>
+    </event>
+</events>

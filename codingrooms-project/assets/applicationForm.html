@@ -1,0 +1,173 @@
+<div class='form-horizontal'>
+    <h3>Contact Information</h3>
+    <div class='row'>
+        <div class='form-group col-sm-4'>
+            <label class='control-label text-left' for='name'>Student Name</label>
+                <div>
+                    <input type='text' id='name' name='name' class='form-control' placeholder='Name'/>
+                </div>
+            </div>
+        <div class='form-group col-sm-4'>
+            <label class='control-label ' for='number'>Phone Number</label>
+                <div >
+                    <input type='tel' id='number' name='number' class='form-control' placeholder='Phone Number'/> 
+                </div>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='form-group col-sm-4'>
+            <label class='control-label' for='email'>Email</label>
+                <div>
+                    <input type='email' id='email' name='email' class='form-control' placeholder='Email'/>
+                </div>
+        </div>
+        <div class='form-group col-sm-4'>
+            <label class='control-label' for='address'>Address</label>
+                <div>
+                    <input type='text' id='address' name='address' class='form-control' placeholder='Address'/>  
+                </div>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='form-group col-sm-4'>
+            <label class='control-label' for='counselorname'>Counselor Name</label>
+                <div>
+                    <input ctype='text' class='form-control' name='counselorname' id='counselorname' placeholder='Counselor Name'/>
+                </div>
+        </div>
+        <div class='form-group col-sm-4'>
+            <label class='control-label' for='counseloremail'>Counselor Email</label>
+                <div>
+                    <input type='text' id='counseloremail' name='counseloremail' class='form-control' placeholder='Counselor Email'/>
+                </div>
+        </div>
+    </div>
+
+    <hr>
+    <h3>Activity</h3>
+    <div class='row'>
+        <div class='form-group col-sm-4'>
+            <label class='control-label' for='activityName'>Activity Name</label>
+                <div>
+                    <input type='text' id='activityName' name='activityName' class='form-control' placeholder='Activity Name'/>
+                </div>
+        </div>
+        <div class='form-group col-sm-4'>      
+            <label class='control-label' for='title'>Title</label>
+                <div>
+                    <input type='text' id='title' name='title' class='form-control' placeholder='Title'/>
+                </div>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='form-group col-sm-4'>
+            <label class='control-label' for='supervisorName'>Supervisor Name</label>
+                <div>
+                    <input type='text' id='supervisorName' name='supervisorName' class='form-control' placeholder='Supervisor Name'/>
+                </div>
+        </div>
+        <div class='form-group col-sm-4'> 
+            <label class='control-label' for='supervisoremail'>Supervisor Email</label>
+                <div>
+                    <input type='text' id='supervisoremail' name='supervisoremail' class='form-control' placeholder='Supervisor Email'/>
+                </div>
+        </div>
+    
+    <div class='row'>
+        <div class='form-group col-lg-10'>
+        <label class='control-label' for='activityDescription'>Activity Description</label>
+            <div>
+                <textarea id='activityDescription' name='activityDescription' class='form-control' rows='3'></textarea>
+            </div>
+        </div>
+    </div>
+    <div class='row mt-3'>
+        <div class='form-group col-lg-10'>   
+            <div>
+                <label class='radio-inline'><input type='radio' id='serviceradio' name='category'> Service</label>
+                <label class='radio-inline'><input type='radio' id='leadershipradio' name='category'> Leadership</label>
+                <label class='radio-inline'><input type='radio' id='bothradio' name='category'> Both</label>
+            </div>
+        </div>
+    </div>
+    <div class='row mt-3'>
+        <div class='form-group col-sm-4'>
+        <label class='control-label'>Number of Hours</label>
+            <div>
+                <input type='number' id='servicehours' name='servicehours' class='form-control' placeholder='Service Hours'/>
+            </div>
+        </div>
+    </div>
+    <div class='row mt-3 mb-3'>
+        <div class='form-group col-lg-10'>
+            <button class='btn btn-dark'>Add Activity</button>
+        </div>
+    </div>
+    <hr>
+
+    <h3>References</h3>
+    <div class='row'>
+        <div class='form-group col-sm-4'>
+            <label class='control-label' for='reference1'>Reference Name</label>
+            <div>
+                <input type='text' id='reference1' name='reference1' class='form-control' placeholder='Reference Name'/>
+            </div>
+        </div>
+        <div class='form-group col-sm-4'>
+            <label class='control-label' for='refemail1'>Reference Email</label>
+            <div>
+                <input type='address' id='refemail1' name='refemail1' class='form-control' placeholder='Reference Email'/>
+            </div>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='form-group col-sm-4'>
+            <label class='control-label' for='reference1'>Reference Name</label>
+            <div>
+                <input type='text' id='reference1' name='reference1' class='form-control' placeholder='Reference Name'/>
+            </div>
+        </div>
+        <div class='form-group col-sm-4'>
+            <label class='control-label' for='refemail1'>Reference Email</label>
+            <div>
+                <input type='address' id='refemail1' name='refemail1' class='form-control' placeholder='Reference Email'/>
+            </div>
+        </div>
+    </div>
+    <div class='row mt-3 mb-3'>
+        <div class='form-group col-lg-10'>
+            <button class='btn btn-dark'>Add Reference</button>
+        </div>
+    </div>
+    <hr>
+
+        <div class='form-group'>
+            <label class='label-control col-xs-12'>Essay</label>
+        <p class='help-block col-xs-12' for='essay'>How do you see yourself as a leader?  
+            Describe an activity or experience in which your participation made a difference.  
+            How did your leadership skills influence the outcome?  Give examples. (Maximum of 250 words)</p>
+            <div class='col-xs-12'>
+                <textarea id='essay' name='essay' class='form-control' rows='4'></textarea>
+            </div>
+    </div>
+    
+    <div class='form-group'>
+        <button class='btn btn-success btn-lg' id='applicationsubmit' type='submit'>Submit Application</button>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function () {
+        $(".add-activity-btn").click(function () {
+            var activityContainer = $(".activity-container:first").clone();
+            activityContainer.find('input').val('');
+            $(".activity-container:last").after(activityContainer);
+        });
+
+        $(".add-reference-btn").click(function () {
+            var referenceContainer = $(".reference-container:first").clone();
+            referenceContainer.find('input').val('');
+            $(".reference-container:last").after(referenceContainer);
+        });
+    });
+</script>

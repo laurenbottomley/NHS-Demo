@@ -1,0 +1,44 @@
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+main > .container {
+  padding: 60px 15px 0;
+}
+
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
+
+/* Modify the nav background color */
+.navbar-custom {
+    background-color: lightblue;
+}
+
+/* Modify the nav brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: navy;
+    transition: color 0.3s ease;
+}
+
+/* Modify the nav link color */
+.navbar-custom .nav-link{
+    color:navy;
+}
+.navbar-custom .nav-link:hover,
+.navbar-custom .nav-link:visited:hover{
+    color:white !important;
+}
+
+
